@@ -17,10 +17,46 @@
   <h2>O contador é menor que 7</h2>
 </ng-template>
 
-<!-- ngIf  -->
+<!-- ngSwitch  -->
 <ul [ngSwitch]="count" class="list-group mx-auto col-3">
   <li class="list-group-item" *ngSwitchCase="3">É igual a 3</li>
   <li class="list-group-item" *ngSwitchCase="6">É igual a 6</li>
   <li class="list-group-item" *ngSwitchCase="9">É igual a 9</li>
   <li class="list-group-item" *ngSwitchDefault>Esse é o default</li>
 </ul>
+
+<!-- ngFor -->
+<ul [ngSwitch]="count" class="list-group mx-auto my-3 col-3">
+  <li class="list-group-item" *ngFor="let person of persons">
+    The full name is {{ person.name }} {{ person.last }}
+  </li>
+</ul>
+
+<!-- Como funciona por de baixo ngFor -->
+<ul [ngSwitch]="count" class="list-group mx-auto my-3 col-3">
+  <ng-template ngFor let-person [ngForOf]="persons">
+    <li class="list-group-item">
+      The full name is {{ person.name }} {{ person.last }}
+    </li>
+  </ng-template>
+</ul>
+
+<!-- enviando do html ao component.ts -->
+<div class="mx-auto my-3 col-6">
+  <!-- utilizando nova directiva automatizada 'appMarcaText' criada do zero  -->
+  <h3 appMarcaText colorBackground = 'blue' colorText = 'green'>{{ name }}</h3>
+  <button class="btn btn-success col-6 mx-auto" (click)="testClick('Nelson')">
+    Click
+  </button>
+</div>
+
+<!-- two way data binding -->
+<div class="col-4 mx-auto">
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Text any"
+    [(ngModel)]="textValue"
+  />
+  <h4>Exit: {{ textValue }}</h4>
+</div>
