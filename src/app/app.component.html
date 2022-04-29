@@ -28,7 +28,7 @@
 <!-- ngFor -->
 <ul [ngSwitch]="count" class="list-group mx-auto my-3 col-3">
   <li class="list-group-item" *ngFor="let person of persons">
-    The full name is {{ person.name }} {{ person.last }}
+    The full name is {{ person.firstName }} {{ person.lastName }} with {{ person.age }} years
   </li>
 </ul>
 
@@ -36,7 +36,7 @@
 <ul [ngSwitch]="count" class="list-group mx-auto my-3 col-3">
   <ng-template ngFor let-person [ngForOf]="persons">
     <li class="list-group-item">
-      The full name is {{ person.name }} {{ person.last }}
+      The full name is {{ person.firstName }} {{ person.lastName }} with {{ person.age }} years
     </li>
   </ng-template>
 </ul>
