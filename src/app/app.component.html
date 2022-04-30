@@ -28,7 +28,8 @@
 <!-- ngFor -->
 <ul [ngSwitch]="count" class="list-group mx-auto my-3 col-3">
   <li class="list-group-item" *ngFor="let person of persons">
-    The full name is {{ person.firstName }} {{ person.lastName }} with {{ person.age }} years
+    The full name is {{ person.firstName }} {{ person.lastName }} with
+    {{ person.age }} years
   </li>
 </ul>
 
@@ -36,7 +37,8 @@
 <ul [ngSwitch]="count" class="list-group mx-auto my-3 col-3">
   <ng-template ngFor let-person [ngForOf]="persons">
     <li class="list-group-item">
-      The full name is {{ person.firstName }} {{ person.lastName }} with {{ person.age }} years
+      The full name is {{ person.firstName }} {{ person.lastName }} with
+      {{ person.age }} years
     </li>
   </ng-template>
 </ul>
@@ -44,7 +46,7 @@
 <!-- enviando do html ao component.ts -->
 <div class="mx-auto my-3 col-6">
   <!-- utilizando nova directiva automatizada 'appMarcaText' criada do zero  -->
-  <h3 appMarcaText colorBackground = 'blue' colorText = 'green'>{{ name }}</h3>
+  <h3 appMarcaText colorBackground="blue" colorText="green">{{ name }}</h3>
   <button class="btn btn-success col-6 mx-auto" (click)="testClick('Nelson')">
     Click
   </button>
@@ -59,4 +61,13 @@
     [(ngModel)]="textValue"
   />
   <h4>Exit: {{ textValue }}</h4>
+</div>
+
+<div class="container my-5">
+  <div class="row d-flex align-center justify-content-center">
+    <h2 class="text-center">LISTADO ATRAVES DE APIs</h2>
+    <div class="col-6">
+      <app-list-api></app-list-api>
+    </div>
+  </div>
 </div>
